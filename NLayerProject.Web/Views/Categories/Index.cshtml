@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Categories</h1>
+
+
+<a class="btn btn-success mb-3" asp-action="Create">New Category</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Name</td>
+            <td>
+                <a style="padding:10px;" class="btn-info" asp-action="Update" asp-route-id="@x.Id">Update</a>
+                <a style="padding:10px;" class="btn-danger" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+            </td>
+        </tr>
+            
+        }
+    </tbody>
+</table>
+
